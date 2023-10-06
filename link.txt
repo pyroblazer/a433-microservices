@@ -1,0 +1,2 @@
+Docker Hub: https://hub.docker.com/r/pyroblazer/item-app
+Github Packages: https://docker.pkg.github.com/pyroblazer/a433-microservices/item-app:v1

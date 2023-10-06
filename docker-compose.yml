@@ -1,0 +1,19 @@
+version: '2'  # Versi Docker Compose yang digunakan
+
+services:
+  item-app:
+    image: ghcr.io/pyroblazer/a433-microservices/item-app:v1 # Nama image yang digunakan untuk service item-app
+    ports:
+      - "80:8080"  # Port mapping dari port 80 di host ke port 8080 di container
+    depends_on:
+      - item-db  # item-app hanya akan berjalan setelah item-db diluncurkan
+    restart: always  # Restart container jika terhenti
+
+  item-db:
+    image: mongo:3
+    volumes:
+      - app-db:/data/db  # Mengaitkan volume app-db di host ke /data/db di container
+    restart: always  # Restart container jika terhenti
+
+volumes:
+  app-db:  # Volume bernama app-db
